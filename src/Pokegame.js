@@ -93,8 +93,8 @@ class Pokegame extends Component {
 		return (
 			<Container fluid>
 				<Pokedex pokemon={hand1} />
-				<WinOrLoseCard exp={exp1} isWinner={exp1 > exp2}/>
-				<ButtonGroup exp/>
+				<WinOrLoseCard exp={exp1} isWinner={exp1 > exp2} />
+				<ButtonGroup />
 				<WinOrLoseCard exp={exp2} isWinner={exp2 > exp1} />
 				<Pokedex pokemon={hand2} />
 			</Container>
