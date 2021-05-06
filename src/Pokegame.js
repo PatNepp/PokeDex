@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import Container from "react-bootstrap/Container";
+import ButtonGroup from './ButtonGroup';
 import Pokedex from './Pokedex';
+import WinOrLoseCard from './WinOrLoseCard';
 
 class Pokegame extends Component {
 	static defaultProps = {
@@ -88,10 +91,13 @@ class Pokegame extends Component {
 		let exp1 = hand1.reduce((exp, pokemon) => exp + pokemon.exp, 0);
 		let exp2 = hand2.reduce((exp, pokemon) => exp + pokemon.exp, 0);
 		return (
-			<div>
-				<Pokedex pokemon={hand1} exp={exp1} isWinner={exp1 > exp2} />
-				<Pokedex pokemon={hand2} exp={exp2} isWinner={exp2 > exp1} />
-			</div>
+			<Container fluid>
+				<Pokedex pokemon={hand1} />
+				<WinOrLoseCard exp={exp1} isWinner={exp1 > exp2}/>
+				<ButtonGroup exp/>
+				<WinOrLoseCard exp={exp2} isWinner={exp2 > exp1} />
+				<Pokedex pokemon={hand2} />
+			</Container>
 		);
 	}
 }

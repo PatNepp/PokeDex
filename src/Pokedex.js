@@ -18,8 +18,6 @@ class Pokedex extends Component {
 	render() {
 		return (
 			<Container fluid>
-				<Row>Total Exp: {this.props.exp}</Row>
-				<Row>{this.props.isWinner ? 'Winner' : 'Loser'}</Row>
 				<Row>
 					{this.props.pokemon.map((p) => {
 						return (
