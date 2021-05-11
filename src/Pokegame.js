@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Container from "react-bootstrap/Container";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import ButtonGroup from './ButtonGroup';
 import Pokedex from './Pokedex';
 import WinOrLoseCard from './WinOrLoseCard';
+import './PokeGame.css';
 
 class Pokegame extends Component {
 	static defaultProps = {
@@ -89,7 +91,7 @@ class Pokegame extends Component {
 			{ id: 80, name: 'Slowbro', type: 'Water', exp: 172 },
 			{ id: 81, name: 'Magnemite', type: 'Electric', exp: 65 },
 			{ id: 82, name: 'Magneton', type: 'Electric', exp: 163 },
-			{ id: 83, name: 'Farfetch\'d', type: 'Fighting', exp: 132 },
+			{ id: 83, name: "Farfetch'd", type: 'Fighting', exp: 132 },
 			{ id: 84, name: 'Doduo', type: 'Normal', exp: 62 },
 			{ id: 85, name: 'Dodrio', type: 'Normal', exp: 165 },
 			{ id: 86, name: 'Seel', type: 'Water', exp: 65 },
@@ -174,16 +176,19 @@ class Pokegame extends Component {
 			let randPokemon = hand2.splice(randIdx, 1)[0];
 			hand1.push(randPokemon);
 		}
-
 		let exp1 = hand1.reduce((exp, pokemon) => exp + pokemon.exp, 0);
 		let exp2 = hand2.reduce((exp, pokemon) => exp + pokemon.exp, 0);
 		return (
-			<Container fluid>
-				<Pokedex pokemon={hand1} />
-				<WinOrLoseCard exp={exp1} isWinner={exp1 > exp2} />
-				<ButtonGroup />
-				<WinOrLoseCard exp={exp2} isWinner={exp2 > exp1} />
-				<Pokedex pokemon={hand2} />
+			<Container fluid className="PokeGame">
+				<Row>
+					<Pokedex pokemon={hand1} />
+					<WinOrLoseCard exp={exp1} isWinner={exp1 > exp2} />
+				</Row>
+				{/* <ButtonGroup /> */}
+				<Row>
+					<WinOrLoseCard exp={exp2} isWinner={exp2 > exp1} />
+					<Pokedex pokemon={hand2} />
+				</Row>
 			</Container>
 		);
 	}

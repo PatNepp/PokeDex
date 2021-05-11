@@ -16,7 +16,7 @@ import './Pokedex.css';
 class Pokedex extends Component {
 	render() {
 		return (
-			<Container fluid>
+			<Container fluid className="Pokedex-cards">
 				<Row>
 					{this.props.pokemon.map((p) => {
 						return (
